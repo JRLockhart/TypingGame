@@ -16,5 +16,13 @@ namespace HitTheKeys
         {
             InitializeComponent();
         }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            // Add a random key to the ListBox
+            listBox1.Items.Clear();
+            listBox1.Items.Add("Game over");
+            timer1.Stop();
+        }
     }
 }
