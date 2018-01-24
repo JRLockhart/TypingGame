@@ -36,7 +36,8 @@
             this.missedLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.totalLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.accuracyLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.difficultyProgressBar = new System.Windows.Forms.ToolStripStatusLabel();
+            this.difficulty = new System.Windows.Forms.ToolStripStatusLabel();
+            this.difficultyProgressBar = new System.Windows.Forms.ToolStripProgressBar();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,11 +50,12 @@
             this.listBox1.Location = new System.Drawing.Point(0, 0);
             this.listBox1.MultiColumn = true;
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(876, 174);
+            this.listBox1.Size = new System.Drawing.Size(876, 133);
             this.listBox1.TabIndex = 0;
             // 
             // timer1
             // 
+            this.timer1.Enabled = true;
             this.timer1.Interval = 800;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
@@ -64,8 +66,9 @@
             this.missedLabel,
             this.totalLabel,
             this.accuracyLabel,
+            this.difficulty,
             this.difficultyProgressBar});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 152);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 111);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(876, 22);
             this.statusStrip1.SizingGrip = false;
@@ -96,26 +99,34 @@
             this.accuracyLabel.Size = new System.Drawing.Size(78, 17);
             this.accuracyLabel.Text = "Accuracy: 0%";
             // 
+            // difficulty
+            // 
+            this.difficulty.Name = "difficulty";
+            this.difficulty.Size = new System.Drawing.Size(522, 17);
+            this.difficulty.Spring = true;
+            this.difficulty.Text = "Difficulty";
+            this.difficulty.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // difficultyProgressBar
             // 
+            this.difficultyProgressBar.Maximum = 701;
             this.difficultyProgressBar.Name = "difficultyProgressBar";
-            this.difficultyProgressBar.Size = new System.Drawing.Size(624, 17);
-            this.difficultyProgressBar.Spring = true;
-            this.difficultyProgressBar.Text = "Difficulty";
-            this.difficultyProgressBar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.difficultyProgressBar.Size = new System.Drawing.Size(100, 16);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(876, 174);
+            this.ClientSize = new System.Drawing.Size(876, 133);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.listBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form1";
             this.Text = "Hit the Keys!";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -132,7 +143,8 @@
         private System.Windows.Forms.ToolStripStatusLabel missedLabel;
         private System.Windows.Forms.ToolStripStatusLabel totalLabel;
         private System.Windows.Forms.ToolStripStatusLabel accuracyLabel;
-        private System.Windows.Forms.ToolStripStatusLabel difficultyProgressBar;
+        private System.Windows.Forms.ToolStripStatusLabel difficulty;
+        private System.Windows.Forms.ToolStripProgressBar difficultyProgressBar;
     }
 }
 
